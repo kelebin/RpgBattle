@@ -35,7 +35,7 @@ inv inv;
 pe 	pe;
 mo mo;	
 es es;
-int ata;
+int ata,ata2;
 int op;	
 	pe.vida 		= 200;
 	pe.dano 		= 30;
@@ -45,20 +45,36 @@ int op;
 	
 	es.vida         =50;
 	es.def          =20;
-	es.danoini2		=15;
+	es.danoini2		=20;
 	
-	//while((op!=5)&&(op>=1)&&(op<6)){
+	while(op!=5){
 	
 	printf("batalha\nSelecione sua acao : \n1-atacar\n2-skill\n3-item\n4-status inimigo\n5-fugir\n");
 	scanf("%d",&op);
+	system("cls");
 	switch (op){
 	case 1:{
-		ata = ((pe.dano-es.def)*2);
+			ata = ((pe.dano-es.def)*2);
 		printf("voce hitou : %d\n",ata );
-		es.vida-=ata;
-		system("pause");
+			es.vida-=ata;
 		printf("vida do inimigo : %d\n",es.vida);
-		
+		system("pause");
+			ata2 = es.danoini2;
+		printf("o inimigo hitou : %d\n",ata2);
+			pe.vida -= ata2;
+		printf("Sua vida : %d\n",pe.vida);
+		system("pause");
+		system("cls");
+		system("pause");
+				if (es.vida<=0){
+				printf("monstro derrotado\n");
+				}
+				if (pe.vida<=0){
+				system("cls");
+				printf("Voce morreu\n");
+				printf("Fim do jogo");
+				exit(0);
+		}
 		break;
 	}
 	
@@ -68,7 +84,7 @@ int op;
 	
 	}
 	
-	//}
+	}
 		
 return 0;	
 }
