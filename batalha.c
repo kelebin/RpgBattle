@@ -31,6 +31,7 @@ int vida,danoini2,eva,def;
 
 
 int main(){
+int ops;
 inv inv;
 pe 	pe;
 mo mo;	
@@ -60,8 +61,9 @@ int op;
 		printf("vida do inimigo : %d\n",es.vida);
 		system("pause");
 			ata2 = es.danoini2;
+			if (es.vida >0){			
 		printf("o inimigo hitou : %d\n",ata2);
-			pe.vida -= ata2;
+			pe.vida -= ata2;}
 		printf("Sua vida : %d\n",pe.vida);
 		system("pause");
 		system("cls");
@@ -77,7 +79,23 @@ int op;
 		}
 		break;
 	}
-	
+	case 2: {
+		printf("Selecione A skill : \n1-Raio\n2-Cura\n");
+		scanf("%d", &ops);
+		if (ops==2){
+			if (pe.vida > 200){
+			printf("Sua Vida ja esta cheia, nada aconteceu...\n");
+			}
+			else{
+			pe.vida+=50;
+			printf("Sua vida %s\n",pe.vida);
+			}
+		}
+		else {
+		printf("Voce usou Raio zzzzzzzzz\n");
+		}
+		break;
+	}
 	
 	
 	
@@ -88,6 +106,17 @@ int op;
 		
 return 0;	
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
